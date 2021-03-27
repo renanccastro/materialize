@@ -2486,6 +2486,8 @@ $jscomp.polyfill = function (e, r, p, m) {
           } while (newFocusedIndex < this.dropdownEl.children.length && newFocusedIndex >= 0);
 
           if (foundNewIndex) {
+            // Remove active class from old element
+            if (this.focusedIndex >= 0) this.dropdownEl.children[this.focusedIndex].classList.remove('active');
             this.focusedIndex = newFocusedIndex;
             this._focusFocusedItem();
           }
@@ -2585,7 +2587,12 @@ $jscomp.polyfill = function (e, r, p, m) {
       key: "_focusFocusedItem",
       value: function _focusFocusedItem() {
         if (this.focusedIndex >= 0 && this.focusedIndex < this.dropdownEl.children.length && this.options.autoFocus) {
-          this.dropdownEl.children[this.focusedIndex].focus();
+          this.dropdownEl.children[this.focusedIndex].classList.add('active');
+          this.dropdownEl.children[this.focusedIndex].scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'nearest'
+          });
         }
       }
     }, {
@@ -7012,6 +7019,13 @@ $jscomp.polyfill = function (e, r, p, m) {
           if (this.activeIndex >= 0) {
             this.$active = $(this.container).children('li').eq(this.activeIndex);
             this.$active.addClass('active');
+
+            // Focus selected
+            this.container.children[this.activeIndex].scrollIntoView({
+              behavior: 'smooth',
+              block: 'nearest',
+              inline: 'nearest'
+            });
           }
         }
       }
