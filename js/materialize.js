@@ -4545,6 +4545,8 @@ $jscomp.polyfill = function (e, r, p, m) {
       value: function _setTooltipContent(tooltipContentEl) {
         tooltipContentEl.textContent = this.options.text;
         if (!!this.options.html) {
+          // Warn when using html
+          console.warn('The html option is deprecated and will be removed in the future. See https://github.com/materializecss/materialize/pull/49');
           $(tooltipContentEl).append(this.options.html);
         }
         if (!!this.options.unsafeHTML) {
@@ -5459,6 +5461,8 @@ $jscomp.polyfill = function (e, r, p, m) {
        */
       this.options = $.extend({}, Toast.defaults, options);
       this.htmlMessage = this.options.html;
+      // Warn when using html
+      if (!!this.options.html) console.warn('The html option is deprecated and will be removed in the future. See https://github.com/materializecss/materialize/pull/49');
       // If the new unsafeHTML is used, prefer that
       if (!!this.options.unsafeHTML) {
         this.htmlMessage = this.options.unsafeHTML;
