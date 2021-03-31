@@ -12377,7 +12377,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
         options.each(function (el) {
           if ($(el).prop('selected')) {
-            var text = $(el).text();
+            var text = $(el).text().trim();
             values.push(text);
           }
         });
