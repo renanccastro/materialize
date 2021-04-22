@@ -2626,6 +2626,10 @@ $jscomp.polyfill = function (e, r, p, m) {
         if (!alignments.top) {
           if (alignments.bottom) {
             verticalAlignment = 'bottom';
+
+            if (!this.options.coverTrigger) {
+              idealYPos -= triggerBRect.height;
+            }
           } else {
             this.isScrollable = true;
 
