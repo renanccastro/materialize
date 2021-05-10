@@ -9294,6 +9294,8 @@ $jscomp.polyfill = function (e, r, p, m) {
         this.cancelBtn.innerHTML = this.options.i18n.cancel;
 
         if (this.options.container) {
+          var optEl = this.options.container;
+          this.options.container = optEl instanceof HTMLElement ? optEl : document.querySelector(optEl);
           this.$modalEl.appendTo(this.options.container);
         } else {
           this.$modalEl.insertBefore(this.el);
@@ -10229,7 +10231,8 @@ $jscomp.polyfill = function (e, r, p, m) {
         this.modalEl.id = 'modal-' + this.id;
 
         // Append popover to input by default
-        var containerEl = document.querySelector(this.options.container);
+        var optEl = this.options.container;
+        var containerEl = optEl instanceof HTMLElement ? optEl : document.querySelector(optEl);
         if (this.options.container && !!containerEl) {
           this.$modalEl.appendTo(containerEl);
         } else {
