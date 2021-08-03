@@ -9319,6 +9319,10 @@ $jscomp.polyfill = function (e, r, p, m) {
         var _this55 = this;
 
         format = format || this.options.format;
+        if (typeof format === 'function') {
+          return format(this.date);
+        }
+
         if (!Datepicker._isDate(this.date)) {
           return '';
         }
