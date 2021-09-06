@@ -3,15 +3,15 @@
 Package.describe({
   name: 'materialize:materialize',  // http://atmospherejs.com/materialize/materialize
   summary: 'Materialize (official): A modern responsive front-end framework based on Material Design',
-  version: '1.1.0-alpha',
+  version: '1.1.1-alpha',
   git: 'https://github.com/materializecss/materialize.git'
 });
 
 
 Package.onUse(function (api) {
-  api.versionsFrom('METEOR@1.0');
+  api.versionsFrom('METEOR@2.3.5');
 
-  api.use('fourseven:scss@4.5.4');
+  api.use('fourseven:scss@4.15.0');
 
   api.addFiles([
     'dist/js/materialize.js'
