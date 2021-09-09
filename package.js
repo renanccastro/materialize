@@ -3,7 +3,7 @@
 Package.describe({
   name: 'renanccastro:materialize-legacy',  // http://atmospherejs.com/materialize/materialize
   summary: 'Materialize (Legacy): A modern responsive front-end framework based on Material Design',
-  version: '1.0.0',
+  version: '1.0.1',
   git: 'https://github.com/materializecss/materialize.git'
 });
 
@@ -60,7 +60,7 @@ Package.onUse(function (api) {
     'sass/materialize.scss'
   ];
 
-  api.addFiles(scssFiles, 'client', { isImport: true });
+  api.addFiles(scssFiles, 'client');
 
 
   api.export('M', 'client');
